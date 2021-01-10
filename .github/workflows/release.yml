@@ -85,9 +85,7 @@ jobs:
       - name: Build the Docker container image
         run: docker build -f "Dockerfile" -t shtah/node-${{ matrix.name }}:latest --label "unstable=true" "."
 
-      - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-
-
       - name: Login and Push to Docker Registry
-        run: docker push shtah/node-${{ matrix.name }}
+        run: |
+          docker login -u "shtah" -p "ab810539-8bfe-41ae-9501-e990adc7aa12"
+          docker push blockcore/node-${{ matrix.name }}
