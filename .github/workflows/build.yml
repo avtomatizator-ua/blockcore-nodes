@@ -32,8 +32,8 @@ jobs:
             name: "EXOS"
             solution: "EXOS/OpenExo.sln"
             project: "EXOS/src/OpenExo.Node/OpenExo.Node.csproj"
-          - chain: IMPL
-            name: "IMPL"
+          - chain: IMPLX
+            name: "IMPLX"
             solution: "IMPLX/Impleum.sln"
             project: "IMPLX/src/Impleum.Node/Impleum.Node.csproj"
           - chain: RUTA
@@ -128,7 +128,7 @@ jobs:
       run: zip -r ${{env.RELEASE_NAME}} ./bin/publish/
 
     - name: Release
-      uses: sondreb/action-release@master
+      uses: shtah/action-release@master
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: "${{env.RELEASE_PATH}}"
