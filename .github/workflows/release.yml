@@ -87,5 +87,5 @@ jobs:
 
       - name: Login and Push to Docker Registry
         run: |
-          docker login -u "shtah" -p "ab810539-8bfe-41ae-9501-e990adc7aa12"
+          docker login -u "shtah" -p "ab810539-8bfe-41ae-9501-e990adc7aa12" --password-stdin
           docker push blockcore/node-${{ matrix.name }}
