@@ -83,9 +83,9 @@ jobs:
           ASSEMBLY: ${{ matrix.assembly }}
 
       - name: Build the Docker container image
-        run: docker build -f "Dockerfile" -t shtah/node-${{ matrix.name }}:latest -t shtah/node-${{ matrix.name }}:${{ github.event.release.tag_name }} --label "unstable=true" "."
+        run: docker build -f "Dockerfile" -t node-${{ matrix.name }}:latest -t node-${{ matrix.name }}:${{ github.event.release.tag_name }} --label "unstable=true" "."
 
       - name: Login and Push to Docker Registry
         run: |
           docker login -u "shtah" -p "${{secrets.DockerHubSecret}}"
-          docker push impleum/node-${{ matrix.name }}
+          docker push shtah/node-${{ matrix.name }}
