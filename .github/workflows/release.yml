@@ -87,5 +87,7 @@ jobs:
 
       - name: Login and Push to Docker Registry
         run: |
-          docker login -u "shtah" -p "${{secrets.DockerHubSecret}}"
+          echo '${{ secrets.DOCKERHUB_PASS }}' | docker login --username shtah --password-stdin    
           docker push shtah/node-${{ matrix.name }}
+          
+
